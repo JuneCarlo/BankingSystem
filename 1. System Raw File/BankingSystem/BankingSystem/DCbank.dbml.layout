@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DCbank">
+  <DataContextMoniker Name="/DCbankDataContext" />
+  <nestedChildShapes>
+    <classShape Id="60c710f4-a405-442b-b060-41db02b7efb1" absoluteBounds="1.125, 3.5, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/DCbankDataContext/tblAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2fbd4869-a1cc-4f05-aaa5-75592e724960" absoluteBounds="1.1400000000000001, 3.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="986aecd9-051a-42c8-8263-d24f0f92e8a5" absoluteBounds="4.5, 1.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DCbankDataContext/tblTransaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dfa5056a-295a-4281-95e7-c7423bd4217b" absoluteBounds="4.5150000000000006, 2.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ad543ef-5067-49ad-b70b-15013fbf8c0a" absoluteBounds="0.75, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DCbankDataContext/tblClient" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82cafdeb-c7d9-434b-8081-4ffe7bd5b1ee" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 4.814150890625); (5.5 : 4.814150890625); (5.5 : 3.78049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCbankDataContext/tblAdmin/tblAdmin_tblTransaction" />
+      <nodes>
+        <classShapeMoniker Id="60c710f4-a405-442b-b060-41db02b7efb1" />
+        <classShapeMoniker Id="986aecd9-051a-42c8-8263-d24f0f92e8a5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.26044840494792); (4.5 : 2.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCbankDataContext/tblClient/tblClient_tblTransaction" />
+      <nodes>
+        <classShapeMoniker Id="0ad543ef-5067-49ad-b70b-15013fbf8c0a" />
+        <classShapeMoniker Id="986aecd9-051a-42c8-8263-d24f0f92e8a5" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,41 @@
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\bin\Debug\BankingSystem.exe.config
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\bin\Debug\BankingSystem.exe
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\bin\Debug\BankingSystem.pdb
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.csprojResolveAssemblyReference.cache
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.Form1.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmMain.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.Properties.Resources.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.csproj.GenerateResource.Cache
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.exe
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.pdb
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmForgotPass.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmChangePass.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmRegister.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmAddClient.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmViewUser.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmDeposit.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmInquire.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmTransaction.resources
+C:\Users\JuneCarlo\Desktop\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmWithdraw.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\bin\Debug\BankingSystem.exe.config
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.exe
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.pdb
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\bin\Debug\BankingSystem.exe
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\bin\Debug\BankingSystem.pdb
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.csprojResolveAssemblyReference.cache
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmAddClient.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmChangePass.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmDeposit.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmInquire.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmTransaction.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmWithdraw.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmForgotPass.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmMain.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmRegister.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmViewUser.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.Properties.Resources.resources
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.csproj.GenerateResource.Cache
+C:\Users\JuneCarlo\Desktop\Final\BankingSystem\BankingSystem\obj\Debug\BankingSystem.frmLogin.resources
+C:\Users\JuneCarlo\Desktop\hope\BankingSystem\1. System Raw File\BankingSystem\BankingSystem\bin\Debug\BankingSystem.exe.config
+C:\Users\JuneCarlo\Desktop\hope\BankingSystem\1. System Raw File\BankingSystem\BankingSystem\obj\Debug\BankingSystem.exe
+C:\Users\JuneCarlo\Desktop\hope\BankingSystem\1. System Raw File\BankingSystem\BankingSystem\obj\Debug\BankingSystem.pdb

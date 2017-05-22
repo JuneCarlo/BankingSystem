@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbBANK" Class="DCbankDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=dbBANK;Integrated Security=True" SettingsObjectName="BankingSystem.Properties.Settings" SettingsPropertyName="dbBANKConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblAdmin" Member="tblAdmins">
+    <Type Name="tblAdmin">
+      <Column Name="username" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_question" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_answer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usertype" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isactive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isRemember" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblAdmin_tblTransaction" Member="tblTransactions" ThisKey="username" OtherKey="username" Type="tblTransaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTransactions" Member="tblTransactions">
+    <Type Name="tblTransaction">
+      <Column Name="TransacID" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CAccountID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="transacStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="balance" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Association Name="tblAdmin_tblTransaction" Member="tblAdmin" ThisKey="username" OtherKey="username" Type="tblAdmin" IsForeignKey="true" />
+      <Association Name="tblClient_tblTransaction" Member="tblClient" ThisKey="CAccountID" OtherKey="CAccountID" Type="tblClient" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblClient" Member="tblClients">
+    <Type Name="tblClient">
+      <Column Name="CAccountID" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="lname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentBalance" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="isActive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="tblClient_tblTransaction" Member="tblTransactions" ThisKey="CAccountID" OtherKey="CAccountID" Type="tblTransaction" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_changepass" Method="sp_changepass">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="oldpassword" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="newpassword" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ViewAccountID" Method="sp_ViewAccountID">
+    <ElementType Name="sp_ViewAccountIDResult">
+      <Column Name="CAccountID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_client_deposit" Method="sp_client_deposit">
+    <Parameter Name="TransacID" Parameter="transacID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="CAccountID" Parameter="cAccountID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="amount" Type="System.Decimal" DbType="Decimal(16,2)" />
+    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(16,2)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_client_view" Method="sp_client_view">
+    <Parameter Name="TransacID" Parameter="transacID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="CAccountID" Parameter="cAccountID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(16,2)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_client_withdraw" Method="sp_client_withdraw">
+    <Parameter Name="TransacID" Parameter="transacID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="CAccountID" Parameter="cAccountID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="amount" Type="System.Decimal" DbType="Decimal(16,2)" />
+    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(16,2)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_delete_Tran" Method="sp_delete_Tran">
+    <Parameter Name="CAccountID" Parameter="cAccountID" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_GetClientIDCount" Method="sp_GetClientIDCount">
+    <ElementType Name="sp_GetClientIDCountResult">
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetTransacIDCount" Method="sp_GetTransacIDCount">
+    <ElementType Name="sp_GetTransacIDCountResult">
+      <Column Name="Count1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_INSERT_admin" Method="sp_INSERT_admin">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="secret_question" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="secret_answer" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_insert_client" Method="sp_insert_client">
+    <Parameter Name="CAccountID" Parameter="cAccountID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="fname" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="lname" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_restart_db" Method="sp_restart_db">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_retrieve_user" Method="sp_retrieve_user">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="secret_question" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="secret_answer" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="sp_retrieve_userResult">
+      <Column Name="username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_question" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_answer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usertype" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isactive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isRemember" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_searchT" Method="sp_searchT">
+    <Parameter Name="key" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="sp_searchTResult">
+      <Column Name="TransacID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CAccountID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="transacStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="balance" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Update_isactive" Method="sp_Update_isactive">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="isActive" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Update_isNotActive" Method="sp_Update_isNotActive">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="isActive" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UPDATE_remember" Method="sp_UPDATE_remember">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="isRemember" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_verifypassword" Method="sp_verifypassword">
+    <Parameter Name="password" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="sp_verifypasswordResult">
+      <Column Name="username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_question" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_answer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usertype" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isactive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isRemember" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_verifyusername" Method="sp_verifyusername">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="sp_verifyusernameResult">
+      <Column Name="username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_question" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_answer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usertype" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isactive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isRemember" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_verifyusernamepass" Method="sp_verifyusernamepass">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="sp_verifyusernamepassResult">
+      <Column Name="username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_question" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_answer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usertype" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isactive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isRemember" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_view_client" Method="sp_view_client">
+    <Parameter Name="CAccountID" Parameter="cAccountID" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="sp_view_clientResult">
+      <Column Name="CAccountID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="fname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="lname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentBalance" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="isActive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_view_remember" Method="sp_view_remember">
+    <ElementType Name="sp_view_rememberResult">
+      <Column Name="username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_question" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="secret_answer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usertype" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isactive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isRemember" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_view_teller" Method="sp_view_teller">
+    <ElementType Name="sp_view_tellerResult">
+      <Column Name="AdminName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Isactive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_view_transactions" Method="sp_view_transactions">
+    <ElementType Name="sp_view_transactionsResult">
+      <Column Name="TransacID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CAccountID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="transacStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>
